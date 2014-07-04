@@ -1,0 +1,7 @@
+<%= semantic_form_for @pdf_file, url: upload_file_path do |f| %>
+
+    <%= f.input :pdf , :as => :file %>
+
+ <%= f.submit :submit, :class => "button next-step step-six submit", :value => "Submit"%>
+<% end %>
+
