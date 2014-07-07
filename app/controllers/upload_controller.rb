@@ -16,7 +16,7 @@ class UploadController < ApplicationController
     
   end
   
-  def create_session
+  def authorize_url
     session = RubyBox::Session.new({
       client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
       client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8'
@@ -24,6 +24,10 @@ class UploadController < ApplicationController
 
     authorize_url = session.authorize_url('http://localhost:3000')
   end
+  
+  
+  
+  
   
   
 end
