@@ -8,7 +8,7 @@ class UploadController < ApplicationController
       
       @pdf_file.pdf = params[:pdf_file][:pdf]
       if @pdf_file.save
-        render :action => "upload ok"
+        render :text => "upload ok" and return
       end
     end
     render  :layout => false
