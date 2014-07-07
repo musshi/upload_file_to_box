@@ -5,11 +5,18 @@ class UploadController < ApplicationController
   
   def upload_file
     @pdf_file = PdfFile.new()
-    if request.post?
-      
+    if request.post?      
       @pdf_file.pdf = params[:pdf_file][:pdf]
       if @pdf_file.save
-        render :text => "upload ok" and return
+        session = RubyBox::Session.new({
+          client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
+          client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8',
+          access_token: 'nc5agec5P0W5MZpjH5opFNn94xuOWzmP'
+        })
+
+        client = RubyBox::Client.new(session)
+        client.upload_file(@pdf_file.pdf.path,'test_upload')
+        render action: => "upload_file" and return
       end
     end
     render  :layout => false
@@ -19,10 +26,11 @@ class UploadController < ApplicationController
   def authorize_url
     session = RubyBox::Session.new({
       client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
-      client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8'
+      client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8',
+      access_token: 'nc5agec5P0W5MZpjH5opFNn94xuOWzmP'
     })
 
-    authorize_url = session.authorize_url('http://localhost:3000')
+    client = RubyBox::Client.new(session)
   end
   
   
