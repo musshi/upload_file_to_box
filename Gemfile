@@ -19,10 +19,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
+gem 'thin', '~> 1.6.2'
 gem 'jquery-rails'
 gem "paperclip"
 gem 'formtastic', '~> 2.2.1'
 gem 'mysql2'
+gem 'ruby-box'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
