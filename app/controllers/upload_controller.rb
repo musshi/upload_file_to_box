@@ -1,6 +1,15 @@
 class UploadController < ApplicationController
   require 'ruby-box'
+  
   def index
+    session = RubyBox::Session.new({
+      client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
+      client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8',
+      access_token: 'fNmcQPJggAqiIA2t6lRGRodTF19nasTC'
+    })
+  
+    @client = RubyBox::Client.new(session)
+    
   end
   
   def upload_file
@@ -11,30 +20,20 @@ class UploadController < ApplicationController
         session = RubyBox::Session.new({
           client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
           client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8',
-          access_token: 'nc5agec5P0W5MZpjH5opFNn94xuOWzmP'
+          access_token: 'fNmcQPJggAqiIA2t6lRGRodTF19nasTC'
         })
-
+       
         client = RubyBox::Client.new(session)
-        client.upload_file(@pdf_file.pdf.path,'test_upload')
-        
-        render action: => "upload_file" and return
+        client.upload_file( @pdf_file.pdf.path , '/test_upload')
+        redirect_to :action => "show_file"
       end
     end
-    render  :layout => false
+    # render  :layout => false
+  end
+  
+  def show_file
     
   end
-  
-  def authorize_url
-    session = RubyBox::Session.new({
-      client_id: 'q80g0i97y9bmgvtkbi7qqeh06sitgwlt',
-      client_secret: 'o4Jldrb45zvCeflrdAwLar3OFqoKJSQ8',
-      access_token: 'nc5agec5P0W5MZpjH5opFNn94xuOWzmP'
-    })
-
-    client = RubyBox::Client.new(session)
-  end
-  
-  
   
   
   

@@ -1,0 +1,10 @@
+<ul>
+  <% @client.folder.item_collection.entries.each do |folder| %>
+    <% if folder["type"] == "folder"%>
+      <li class="folder-li">
+      
+        <a class="folder" href="#" data-folder-id="<%= folder["id"]%>"><%= folder["name"]%></a>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

@@ -6,6 +6,12 @@ UploadToBox::Application.routes.draw do
   root 'upload#upload_file'
   get '/upload_file', to: 'upload#upload_file', as: 'upload_file'
   post '/upload_file', to: 'upload#upload_file'
+  
+   get '/save', to: 'upload#upload_file'
+   post '/save', to: 'upload#upload_file'
+  
+   get '/show_file', to: 'upload#show_file', as: 'show_file'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

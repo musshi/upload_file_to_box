@@ -12,6 +12,39 @@
  
  */
 .upload-file-selecter{
-/*  position:absolute;*/
+  margin-top:100px;
+}
+.upload-file-selecter li.file input#pdf_file_pdf{
+  margin-left:20px;
+}
+input.submit{
+  margin-left:56px;
+  margin-top:20px;
+}
+/*
+.upload-file-selecter li.file{
+  height:50px;
+  padding-top:10px;
+}
+.upload-file-selecter li.file .label{
+  font-size:20px;
+}
+
+.upload-file-selecter li.file input#pdf_file_pdf{
+  width:100px;
+  height:30px;
+  cursor:pointer;
   background:red;
+}*/
+a.folder{
+  color: blue;
+  text-decoration: none;
+}
+.folder-li{
+  height:80px;
+  width:100px;
+  margin-top:30px;
+  background-color:#FEE167;
+  padding: 30px 10px 20px 10px;
+  border-radius: 3px 80px 3px 1px;
 }
