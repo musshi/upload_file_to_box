@@ -16,6 +16,7 @@ class UploadController < ApplicationController
 
         client = RubyBox::Client.new(session)
         client.upload_file(@pdf_file.pdf.path,'test_upload')
+        
         render action: => "upload_file" and return
       end
     end
